@@ -1,0 +1,92 @@
+# ------------------------------------------------------------------------------
+# Custom configuration
+# ------------------------------------------------------------------------------
+
+
+# ------------------------------------------------------------------------------
+# Spaceship prompt order
+# ------------------------------------------------------------------------------
+# Custom config must declear before order
+
+# Builtin sections before line break
+SPACESHIP_PROMPT_ORDER_PREFIX=(
+#  time          # Time stamps section
+  user          # Username section
+  dir           # Current directory section
+  git           # Git section (git_branch + git_status)
+  kubectl       # Kubectl context section
+  venv          # virtualenv section
+  conda         # conda virtualenv section
+  pyenv         # Pyenv section
+)
+
+# Line break
+SPACESHIP_PROMPT_ORDER_LINE_SEP=line_sep
+
+# Builtin sections after line break
+SPACESHIP_PROMPT_ORDER_SUFFIX=(
+  char          # Prompt character
+)
+
+# Custom sections before line break
+SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM=()
+# Custom sections after line break
+SPACESHIP_PROMPT_ORDER_SUFFIX_CUSTOM=()
+
+# Enable python
+if [ -f ~/.zshrc.spaceship-prompt.python ]; then
+    source ~/.zshrc.spaceship-prompt.python
+    SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM=($SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM python)
+fi
+
+# Enable cproxy
+if [ -f ~/.zshrc.spaceship-prompt.cproxy ]; then
+    source ~/.zshrc.spaceship-prompt.cproxy
+    SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM=($SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM cproxy)
+fi
+
+
+SPACESHIP_PROMPT_ORDER=(
+    ${SPACESHIP_PROMPT_ORDER_PREFIX[@]}
+    ${SPACESHIP_PROMPT_ORDER_PREFIX_CUSTOM[@]}
+    $SPACESHIP_PROMPT_ORDER_LINE_SEP
+    ${SPACESHIP_PROMPT_ORDER_SUFFIX[@]}
+    ${SPACESHIP_PROMPT_ORDER_SUFFIX_CUSTOM[@]}
+)
+
+# ------------------------------------------------------------------------------
+# Time
+# ------------------------------------------------------------------------------
+
+# Show time (set to true for enabling)
+SPACESHIP_TIME_SHOW=true
+
+# ------------------------------------------------------------------------------
+# Conda
+# ------------------------------------------------------------------------------
+
+# Show current Python conda virtualenv or not
+SPACESHIP_CONDA_SHOW=true
+
+# ------------------------------------------------------------------------------
+# Directory
+# ------------------------------------------------------------------------------
+
+# Number of folders of cwd to show in prompt, 0 to show all
+SPACESHIP_DIR_TRUNC=0
+
+# ------------------------------------------------------------------------------
+# Kubernetes
+# ------------------------------------------------------------------------------
+# Kubernetes section consists of kubectl_version and kubectl_context
+# subsections. It is shown only when kubectl can connect to Kubernetes cluster.
+
+# Show Kubernetes section
+SPACESHIP_KUBECTL_SHOW=true
+
+# Prefix before Kubernetes section
+SPACESHIP_KUBECTL_PREFIX=$SPACESHIP_PROMPT_DEFAULT_PREFIX
+
+# Show Kubernetes version subsection
+SPACESHIP_KUBECTL_VERSION_SHOW=false
+

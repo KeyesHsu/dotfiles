@@ -41,7 +41,7 @@ table_format = ascii
 # friendly, monokai, paraiso, colorful, murphy, bw, pastie, paraiso, trac, default,
 # fruity.
 # Screenshots at http://mycli.net/syntax
-syntax_style = monokai
+syntax_style = xcode
 
 # Keybindings: Possible values: emacs, vi.
 # Emacs mode: Ctrl-A is home, Ctrl-E is end. All emacs keybindings are available in the REPL.
@@ -85,7 +85,7 @@ enable_pager = False
 
 # Custom colors for the completion menu, toolbar, etc.
 [colors]
-completion-menu.completion.current = 'bg:#ffffff #000000'
+completion-menu.completion.current = 'bg:#E5E5E5 #000000'
 completion-menu.completion = 'bg:#008888 #ffffff'
 completion-menu.meta.completion.current = 'bg:#44aaaa #000000'
 completion-menu.meta.completion = 'bg:#448888 #ffffff'

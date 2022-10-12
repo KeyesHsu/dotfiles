@@ -1,0 +1,63 @@
+#
+# CProxy
+#
+# CProxy is a simple proxy prompter for clash.
+#
+# ------------------------------------------------------------------------------
+# Configuration
+# ------------------------------------------------------------------------------
+
+SPACESHIP_CPROXY_SHOW="${SPACESHIP_CPROXY_SHOW=true}"
+SPACESHIP_CPROXY_PREFIX="${SPACESHIP_CPROXY_PREFIX="$SPACESHIP_PROMPT_DEFAULT_PREFIX"}"
+SPACESHIP_CPROXY_SUFFIX="${SPACESHIP_CPROXY_SUFFIX="$SPACESHIP_PROMPT_DEFAULT_SUFFIX"}"
+SPACESHIP_CPROXY_SYMBOL="${SPACESHIP_CPROXY_SYMBOL="🚀"}"
+SPACESHIP_CPROXY_COLOR="${SPACESHIP_CPROXY_COLOR="blue"}"
+
+# ------------------------------------------------------------------------------
+# Section
+# ------------------------------------------------------------------------------
+
+# Show cproxy status
+# spaceship_ prefix before section's name is required!
+# Otherwise this section won't be loaded.
+spaceship_cproxy () {
+  # If SPACESHIP_CPROXY_SHOW is false, don't show cproxy section
+  [[ $SPACESHIP_CPROXY_SHOW == false ]] && return
+
+  # Check if foobar command is available for execution
+  #spaceship::exists foobar || return
+
+  # Show foobar section only when there are foobar-specific files in current
+  # working directory.
+  # Here glob qualifiers are used to check if files with specific extension are
+  # present in directory. Read more about them here:
+  # http://zsh.sourceforge.net/Doc/Release/Expansion.html
+  #[[ -f foobar.conf || -n *.foo(#qN^/) || -n *.bar(#qN^/) ]] || return
+
+  # Use quotes around unassigned local variables to prevent
+  # getting replaced by global aliases
+  # http://zsh.sourceforge.net/Doc/Release/Shell-Grammar.html#Aliasing
+  #local 'cproxy_status'
+  #cproxy_status="CPROXY"
+
+  # Exit section if variable is empty
+  if [ -z "$all_proxy" ] || [ -z "$https_proxy" ]; then
+      return
+  fi
+
+  #if [[ $SOME_CONDITION ]]; then
+  #  foobar_status=$(foobar baz)
+  #else
+  #  foobar_status=$(foobar foo)
+  #fi
+
+  # Exit section if variable is empty
+  #[[ -z $foobar_status ]] && return
+
+  # Display foobar section
+  spaceship::section \
+    "$SPACESHIP_CPROXY_COLOR" \
+    "$SPACESHIP_CPROXY_PREFIX" \
+    "$SPACESHIP_CPROXY_SYMBOL" \
+    "$SPACESHIP_CPROXY_SUFFIX"
+}

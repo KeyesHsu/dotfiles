@@ -1,0 +1,13 @@
+[pull]
+	rebase = true
+	prune = true
+[push]
+	# https://git-scm.com/docs/git-config/#Documentation/git-config.txt-pushautoSetupRemote
+	autoSetupRemote = true
+[grep]
+	extendedRegexp = true
+[fetch]
+	prune = true
+[init]
+	defaultBranch = main
+
