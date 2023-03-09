@@ -17,6 +17,17 @@ For example:
 ln -s "$PWD/.tmux.conf" ~/.tmux.conf
 ```
 
+Spaceship prompt file is for v4 version: [Announcing Spaceship v4 — the faster, the better](https://spaceship-prompt.sh/blog/2022-spaceship-v4/), and keep the configuration within `~/.config/spaceship` folder.
+
+```bash
+mkdir -p ~/.config/spaceship
+ln -s "$PWD/spaceship/spaceship.zsh" ~/.config/spaceship/spaceship.zsh
+
+# Link to the custom section
+ln -s "$PWD/spaceship/spaceship-section.proxy.zsh" ~/.config/spaceship/spaceship-section.proxy.zsh
+```
+
+
 ## Author
 
 👤 **Keyes Hsu**
